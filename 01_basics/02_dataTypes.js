@@ -31,6 +31,7 @@ let state;
 console.log(typeof "suraj")//string
 console.log(typeof age)//number
 console.log(typeof undefined)//undefined
+console.log(typeof state)//undefined
 console.log(typeof null)//object
 
 
