@@ -46,3 +46,30 @@ const myFunction = function(){
 console.log(typeof myFunction);// function also called as object function
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+
+//++++++++++++++++++++++++++++++++++++++++++++
+// stack and heap memory
+
+//stack(Primitive types are used in stack) , Heap(Non-primitive types are used in heap)
+//whenever stack memory is used  i.e the variable which you defined makes a copy
+//whenever heap memory is used  i.e the variable which you defined doesnt makes a copy referenced is passed
+
+//stack memory example
+let myName="Suraj"
+let anotherName=myName;
+console.log(anotherName);
+anotherName="Bhai"
+console.log(anotherName);
+console.log(myName);
+
+//heap memory example
+let userOne={
+    email:"user@google.com",
+    upi:"user@ybl"
+}
+let userTwo=userOne
+userTwo.email="suraj@google.com"
+console.log(userOne.email);
+console.log(userTwo.email);
