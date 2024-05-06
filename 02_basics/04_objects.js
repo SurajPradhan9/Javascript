@@ -119,4 +119,4 @@ console.log(a);//hitesh
 // ]
 
 //so we get the apis in this form so what to do now ,to get them 
-//we should know how to fetch the data in javascript (i.e call the requitred url and in response we get the data) after getting the data convert it to objects and access them
+//we should know how to fetch the data in javascript (i.e call the required url and in response we get the data) after getting the data convert it to objects and access them
