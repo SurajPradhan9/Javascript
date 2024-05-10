@@ -4,12 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dom Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
 </head>
-<!-- Document Object Model -->
-<body>
-    <div class="bg-black">
-        <h1 class="heading">Dom Learning on Chai aur code</h1>
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">Dom Learning on Chai aur code <span style="display: none;">test text</span> </h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
         <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+
     </div>
 </body>
 </html>
+
+<!-- Document Object Model -->
+
+<!-- console.log(window)
+console.log(document)
+console.dir(document)
+console.log(document.baseURI)//gives webpage baseuri or url
+console.dir(document.links)//gives all the links of the document in html collection
+console.log(document.links[2])//gives the 2nd link
+
+document.getElementById('firstHeading')//gives the element (tag) that has the id firstHeading
+document.getElementById('firstHeading').innerHTML="<h1>Suraj Pradhan</h1>"//Manipulates the innerHTML of (id) firstHeading -->
+
+
+
+<!-- 
+//Targetting or selecting element by ID
+document.getElementById('title')//gives the element 
+
+document.getElementById('title').id //gives the id name
+document.getElementById('title').className ///give the name of the class present in the element
+
+document.getElementById('title').getAttribute('id')//gives id name (i.e pass key it will give value i.e key is id value is title)
+document.getElementById('title').getAttribute('class')//gives class name
+
+document.getElementById('title').setAttribute('class','test') //sets the attribute but it overrides the present one i.e heading will be replaced by test (if you want heading also then do below)
+document.getElementById('title').setAttribute('class','test heading')
+
+//we can also store the values 
+const title=document.getElementById('title')//if we will print the variable i.e title it gives the element of id title 
+
+//we can also style our elements
+title.style.backgroundColor="green"
+title.style.padding="20px"
+title.style.borderRadius="20px"
+
+title.textContent //gives content of the element
+title.innerHTML //it also gives the content
+title.innerText //also gives content
+
+//the above 3 gives same output but what is the difference , the difference bwt textcontent and innerText is
+//we are referring to id title i.e 
+<h1 id="title" class="heading">Dom Learning on Chai aur code</h1>
+
+//inside h1 tag add a span tag i.e
+<h1 id="title" class="heading">Dom Learning on Chai aur code <span>test text</span> </h1>
+
+//now if we print 
+title.textContent
+title.innerText
+//it gives 'Dom Learning on Chai aur code test text' 
+
+//now add a style to the span tag
+<h1 id="title" class="heading">Dom Learning on Chai aur code <span style="display: none;">test text</span> </h1>
+//we will see that inside the span tag content is removed from the page (test text)
+//now if we print 
+title.textContent //it gives 'Dom Learning on Chai aur code test text '
+title.innerText //it gives 'Dom Learning on Chai aur code'
+
+//now we get the difference i.e if we print title.innerText we get the text i.e visible and if we print title.textContent we get full content (the content that we removed using css property also shown)
+
+//use title.textContent or title.innerText-> depend on usecase
+
+//now what does title.innerHTML do if we print it 
+//it gives
+'Dom Learning on Chai aur code <span style="display: none;">test text</span> '
+//we can see that it also gives the html element(span tag) which is present  inside h1 tag (id:title)
+-->
+
+
+
+<!-- //Targetting or selecting element by className
+document.getElementsByClassName("heading")
+//it gives the html collection
+HTMLCollection [h1#title.heading, title: h1#title.heading] -->
+
+
+<!-- 
+//selecting elements by other selectors
+document.querySelector('h2')//gives the first tag i.e h2 tag
+document.querySelectorAll('h2') //gives the node list of h2 tags i.e NodeList(3) [h2, h2, h2]
+
+//if we want to select id ,class and input tag using querySelector
+document.querySelector('#title') //gives the element that has id title 
+document.querySelector('.heading')//gives the element that has class heading
+document.querySelector('input[type="password"]')//gives the tag that has type password
+
+//in css how we write selectors we can write them in querySelector
+
+//lets say we have a unordered list and we want to change the color of first list-item
+const myUl=document.querySelector('ul')
+myUl.querySelector('li')//gives the first item
+const turnGreen=myUl.querySelector('li')
+turnGreen.style.backgroundColor="green"
+turnGreen.style.padding="15px"
+//we can change the innerText also
+turnGreen.innerText="five"
+
+//if we want to select multiple elements
+document.querySelectorAll('li')//selects all the list items and it returns a nodelist//NodeList(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+//in nodelist we have a prototype forEach
+const tempLiList=document.querySelectorAll('li')
+
+//if we want to style
+tempLiList.style.backgroundColor='green' //it doesnt change to green because it returns nodelist
+//to change it we do
+tempLiList[0].style.backgroundColor='green'
+
+tempLiList.forEach(function(l){
+    l.style.backgroundColor="red"
+})
+ -->
+
+
+
+<!-- 
+ //Targetting or selecting element by className
+ document.getElementsByClassName('list-item') //selects all the tags that has className list-item and it returns a html collection->HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+
+ //in html collection prototype we dont have any looping property so convert it to nodelist or array to loop htmlCollection
+ Array.from(tempClassList)//it converts in to array //(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+ const myConvertedArray=Array.from(tempClassList)
+ myConvertedArray.forEach(function(li){
+    li.style.color="orange"
+}) -->
