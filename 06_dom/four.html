@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur code</title>
+</head>
+<body style="background-color:#212121;color:#fff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+
+    //+++++++++++++++++Add+++++++++++++++++++++
+    //adding a list time in to the unordered list , let we want to add multiple list items with different languages like java typescript python etc if we create multiple list items, the code will be big and unorganized so we are creating a function and passing certain langugage and if we want to add certain language we just need to call the function with passing parameter as language
+
+    //Method 1
+    function addLanguage(langName){
+        const li=document.createElement('li');
+        li.innerHTML=`${langName}`//(it traverse the tree and set the values)
+        document.querySelector('.language').appendChild(li);
+        // console.log(li);
+    }
+    addLanguage('Java')
+    addLanguage('Typescript')
+
+    //Method 1 has one problem that , we know we have only one li , when we are appending a child to that ul , it is traversing the li's it has , if we have 1000000 li's it would traverse all that and at last it would append the li that we have sent (how many times we run the function that many times it would traverse and append the li we have sent which is not good(optimization issue)) so we use method 2 similarly same but with optimization
+
+
+    // Method 2(optimized because compare to method 1 here no need to traverse the whole tree)
+    function addOptiLanguage(langName){
+        const li=document.createElement('li');
+        li.append(document.createTextNode(langName))//only this line is changed compare to method1 (it doesnt traverse the tree i.e if doesnt refer the persented elements of ul) it directly sets the values
+        document.querySelector('.language').appendChild(li);
+    }
+    addOptiLanguage('Python')
+
+
+
+    //++++++++++++++++++Edit+++++++++++++++++++++++++
+    const secondLang=document.querySelector('li:nth-child(2)')
+    // secondLang.innerHTML="Mojo"
+
+    const newLi=document.createElement('li')
+    newLi.textContent='Mojo'
+    secondLang.replaceWith(newLi)
+
+    const firstLang=document.querySelector('li:first-child')
+    firstLang.outerHTML='<li>C++</li>'
+    
+
+    //++++++++++++++++remove+++++++++++++++++++====
+    const lastLang=document.querySelector('li:last-child')
+    lastLang.remove();
+
+    
+</script>
+</html>

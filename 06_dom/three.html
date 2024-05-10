@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style="background-color: black;color: white;">
+    
+</body>
+<script>
+    //creating a element div
+    const div=document.createElement('div')
+    console.log(div);
+    //adding properties to div, bydefault every element individually is a nodelist ,it has every values available(like class id text etc but they are not set)
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1)
+    div.setAttribute("title", "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+    //developers prefer setAttribute over .classname .id etc  because .className .innerText (they select the values present and we are setting so it set the values) but setAttribute doesnt select the values which are present they directly set the values (thus it saves one round trip)
+    // div.innerText = "Chai aur code" //so innertext first takes the reference which is present and then sets(overrides) so prefer below
+    const addText = document.createTextNode("Chai aur code")
+    div.appendChild(addText)
+
+    document.body.appendChild(div)
+</script>
+</html>
