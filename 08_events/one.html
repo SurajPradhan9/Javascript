@@ -24,6 +24,7 @@
     //One exception is browser events (these events invoke at certain activity not like sequentially written document)
 
     //In html document, if we write onclick="alert('owl')" (it is not good approach)(it is not feasable when our application will be scaled then we get problems with this approach (so ignore this approach i.e dont inject in html), but in react it is scalable code i.e feasable,so  we can use in react )
+
     //Approach 2
     // document.getElementById('owl').onclick = function(){
     //     alert("owl clicked")
@@ -39,6 +40,72 @@
     //more approaches
     // attachEvent() //used earlier in internet Explorer
     // jQuery - on
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e);
+    // }, false)//false is default so if we dont keep also it gives same output
+
+    //interviewer will ask click inside the div and where it is clicked draw a circle there (this is done using events)
+
+    //Know about these->below
+    // types(keyboard events mouse events etc), timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    //Event propagation
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e);
+    // }, false)//if we keep true also we see no difference compare to false //false is default so if we dont keep also it gives same output
+
+    //Event propagation has 2 contexts 1. event bubbling and 2. event capturing
+    //In market(projects) more used is default i.e false called as event bubbling but in some scenarios event capturing also used, so for these cases let see 2 examples to know how event propagation happens and how to stop it
+    
+    // //examples
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    // }, false)
+
+    //the above 2 snippets are same with different id's first snipppet id is inside ul and second also inside ul
+    //if we click in ul we will see "clicked inside the ul" and if we click on owl we will see both messages because owl is also inisde ul but what is printed first acc to above snippets if we click on owl we get first "owl clicked" and next "clicked inside the ul" this is called event bubbling i.e first inner element is displayed next outer element and so on (from down to up / inside to outside) called as event propagation (event bubbling)
+
+    // //in same above snippets if we keep true in place of false (it is called event capturing)
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, true)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    // }, true)
+
+    //now if we click on owl first we will see "clicked inside the ul" and next "owl clicked" i.e from outside to inside / top to bottom called as event capturing
+
+    //so we can use event bubbling or event capturing depending upon use case
+
+
+    // //sometimes we dont want event propagation i.e (event bubbling) i.e if we click on owl we should get only "owl clicked"  although it is inside ul
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation() //works only when it is default i.e false
+    // }, false)
+
+
+    
+    // //prevent default 
+    // //if we click on anchor tag (which we provided it redirects to that website) to prevent this we use prevent default (i.e it will change its behaviour it will not redirect to the website we provided)
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
 
 
 
