@@ -108,7 +108,25 @@
     // }, false)
 
 
+    // //our task is if we click on image the image should disappear
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target.parentNode);
+    //     let removeIt=e.target.parentNode
+    //     // removeIt.remove();//method1
+    //     removeIt.parentNode.removeChild(removeIt)//method2
+    // },false)
 
+
+    //the above has one problem i.e if we click on image it is disapperaing(because image parent node is list item) but if we click on list item (i.e click on anchor tag side space) list item parent node is ul which contains all the list items so all the list items disappers if we click on list item ->so use below
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
 
 </script>
 </html>
