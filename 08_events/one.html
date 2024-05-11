@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li> <!--onclick="alert('owl')"-->
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //In javascript all the events run sequentially(with some exceptions that exceptions will be discussed today)(Javascript is sequentually run language)
+    //But sometimes we ignore this sequential in asynchronous programming (we deviate synchronous and after work it come backs)
+    //One exception is browser events (these events invoke at certain activity not like sequentially written document)
+
+    //In html document, if we write onclick="alert('owl')" (it is not good approach)(it is not feasable when our application will be scaled then we get problems with this approach (so ignore this approach i.e dont inject in html), but in react it is scalable code i.e feasable,so  we can use in react )
+    //Approach 2
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+    //this approach can also contains problems because we are keeping onclick and we couldnt get much more information/features so we should use event listeners
+    //because event listeners provides onclick functionality in addition with propagation ability
+
+    // //Approach 3 best approach
+    // document.getElementById('owl').addEventListener('click',function(){
+    //     alert("owl clicked")
+    // })
+
+    //more approaches
+    // attachEvent() //used earlier in internet Explorer
+    // jQuery - on
+
+
+
+
+</script>
+</html>
