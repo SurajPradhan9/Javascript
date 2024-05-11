@@ -8,7 +8,7 @@
 ## project 1
 
 ```javascript
-console.log("hitesh")
+console.log("Suraj")
 const buttons = document.querySelectorAll('.button');
 const body = document.querySelector('body');
 
@@ -39,16 +39,23 @@ buttons.forEach(function (button) {
 ## project 2 solution
 
 ```javascript
+//we are selecting form beacuse in form we have (calculate) submit button on which we have to use an event
 const form = document.querySelector('form');
+
+//when we submit form it is submitted by post type or get type and when we submit the form its values are sent to url or server we should stop this because we are not sending to the server (so we should stop the default action of form)(to stop this we have a method in events) e.preventDefault()
+
 // this usecase will give you empty
 // const height = parseInt(document.querySelector('#height').value)
 
 form.addEventListener('submit', function (e) {
-  e.preventDefault();
+  e.preventDefault();//stops the default action for 1 min i.e dont submit anywhere
 
+  //here we selected the element which has id height (if we want the value of input type we write (.value) and we get the value in string type so we converted it to int using parseInt() function)
   const height = parseInt(document.querySelector('#height').value);
   const weight = parseInt(document.querySelector('#weight').value);
   const results = document.querySelector('#results');
+
+  //if we write these height and weight outside the event it will be empty i.e here we are trying to access the height and weight after clicking the event, because if we write these values outside when we click the event , the page is loaded then empty values will present in height and weight, so we write inside ,because after submitting,the values of height and weight will be accessed (i.e the values we type that will be accessed not empty values)
 
   if (height === '' || height < 0 || isNaN(height)) {
     results.innerHTML = `Please give a valid height ${height}`;
@@ -56,10 +63,18 @@ form.addEventListener('submit', function (e) {
     results.innerHTML = `Please give a valid weight ${weight}`;
   } else {
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    //toFixed is used beacuse we want up to 2 decimal values
     //show the result
-    results.innerHTML = `<span>${bmi}</span>`;
+    if(bmi<18.6){
+      results.innerHTML = `<span>${bmi} (Under Weight)</span>`;
+    }else if(bmi>=18.6 && bmi<24.9){
+      results.innerHTML = `<span>${bmi} (Normal Range)</span>`;
+    }else{
+      results.innerHTML = `<span>${bmi} (Overweight)</span>`;
+    }
   }
 });
+
 
 
 ```
@@ -67,14 +82,20 @@ form.addEventListener('submit', function (e) {
 ## project 3 solution code
 
 ```javascript
-const clock = document.getElementById('clock');
-// const clock = document.querySelector('#clock')
+const clock=document.getElementById('clock')
+// const clock=document.querySelector('#clock')
 
-setInterval(function () {
-  let date = new Date();
-  // console.log(date.toLocaleTimeString());
-  clock.innerHTML = date.toLocaleTimeString();
-}, 1000);
+// let date=new Date()
+// console.log(date.toLocaleTimeString())
+//after refreshing we get the updated time but we want without refreshing we should get the updated time to do this we have a method called setInterval
+//this method asks a method and a interval, and continuously runs the following method for the given interval
+
+//the below continously gives the updated time after 1 second beacuse it is inside setInterval method
+setInterval(function(){
+  let date=new Date()
+  // console.log(date.toLocaleTimeString())
+  clock.innerHTML=date.toLocaleTimeString()
+},1000)//1000 represents 1 sec i.e 1 sec=1000milliseconds
 
 
 ```
