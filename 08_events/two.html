@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // setTimeout and setInterval are not only functions they are also used to call an api (they are not only core functions, we get them from browser(they are not a part of core javascript)) & clearTimeout and clearInterval are also a part of setTimeout and setInterval so we should read them
+    
+    //if we hover on settimeout we will see a handler and a timeout(in number) (basically handler is a callback function only  i.e a function without name)
+
+    // setTimeout(function(){
+    //     // console.log("Suraj");
+    // },2000) //after 2sec suraj will be printed in console (here suraj is printed only 1 tym)
+
+    // setInterval(function(){
+    //     // console.log("Bhai");
+    // },2000)//after 2sec bhai will be printed in console (here bhai is printed continuosly after every 2 sec)
+
+    // //we can also write like this (i.e if we write the handler outisde we should give reference inside settimeout i.e saySuraj (reference) saySuraj()(execute) we should give reference)
+    // const saySuraj=function(){
+    //     console.log("Suraj");
+    // }
+    // setTimeout(saySuraj,2000)
+
+
+    //now we want our h1 tag which is chai aur code to change after 2 sec
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best JS series"
+    }
+    const changeMe=setTimeout(changeText,2000)
+
+    //now we want, if we click on stop button before 2 sec it should not change to best JS series
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("STOPPED");
+    })
+    
+
+
+
+</script>
+</html>
