@@ -128,7 +128,7 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 //we are getting the output of this console log first
 
 //but we wrote all the above promises first but we are getting the just written code 
-//we will see this in next video
+//we will see this in next video :refer video for solution
 
 
 
