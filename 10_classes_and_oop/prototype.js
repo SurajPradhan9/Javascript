@@ -28,14 +28,49 @@ Array.prototype.heySuraj = function(){
     console.log(`Suraj says hello`);
 }
 
-heroPower.suraj();//gives output
-myHeros.suraj();//gives output because array also passes through object prototype
+// heroPower.suraj();//gives output
+// myHeros.suraj();//gives output because array also passes through object prototype
 //but if we add properties to array (if we access through an object it will give error (refer screenshot))
-myHeros.heySuraj()//gives output
-heroPower.heySuraj()//error (refer screenshot i.e function array string all passes through object if we add properties to object everyone can access it, but if we give property to array, only it can access it,string function object cannot access it)
+// myHeros.heySuraj()//gives output
+// heroPower.heySuraj()//error (refer screenshot i.e function array string all passes through object if we add properties to object everyone can access it, but if we give property to array, only it can access it,string function object cannot access it)
 
 //3
+// inheritance
+
+const User = {
+    name: "chai",
+    email: "chai@google.com"
+}
+
+const Teacher = {
+    makeVideo: true
+}
+
+const TeachingSupport = {
+    isAvailable: false
+}
+
+const TASupport = {
+    makeAssignment: 'JS assignment',
+    fullTime: true,
+    __proto__: TeachingSupport //now TASupport can access properties of TeachingSupport
+}
+
+Teacher.__proto__ = User //Teacher can access properties of User
+
+// modern syntax
+Object.setPrototypeOf(TeachingSupport, Teacher)//TeachingSupport can access properties of Teacher
 
 
+//4
+let anotherUsername = "ChaiAurCode     "
 
+String.prototype.trueLength = function(){
+    console.log(`${this}`);
+    console.log(`True length is: ${this.trim().length}`);
+}
+
+anotherUsername.trueLength()
+"suraj".trueLength()
+"iceTea".trueLength()
 
