@@ -1,4 +1,4 @@
-// refer 2 screenshots
+// refer 2 screenshots and video
 function SetUsername(username){
     //complex DB calls
     this.username = username
